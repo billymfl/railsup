@@ -51,7 +51,9 @@ exec "$@"
 docker build -t rails:dev .
 ```
 
-5. Run dev environment, mounting a volume to store the gems that get installed, and binding to the current working directory. Set any network name, Make sure network and volume exist (use docker network create XXX and docker volume create YYY)
+5. Run dev environment, mounting a volume to store the gems that get installed, and binding to the current working directory. Set any network name, Make sure network and volume exist (use docker network create XXX and docker volume create YYY).
+Note: Best to use a different volume depending on the Rails verions.
+
 
 ```bash
 docker run -it --rm --mount type=bind,src="$(pwd)",dst=/usr/src/app --mount type=volume,src=latest_gems,dst=/usr/local/bundle -p 80:3000 --network rails-app rails:dev bash
