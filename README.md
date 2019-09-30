@@ -56,3 +56,8 @@ docker build -t rails:dev .
 ```bash
 docker run -it --rm --mount type=bind,src="$(pwd)",dst=/usr/src/app --mount type=volume,src=latest_gems,dst=/usr/local/bundle -p 80:3000 --network rails-app rails:dev bash
 ```
+
+6. Do this to overwrite some files (also can use --database= to specify db, ex, mysql)
+```bash
+rails new . --force
+```
